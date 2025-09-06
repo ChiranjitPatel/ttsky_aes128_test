@@ -17,20 +17,21 @@ module tt_um_example (
 );
   // tt_um_sub_bytes uut1 (.in_data(ui_in), .out_data(uo_out));
   
-  tt_um_aes_core_uart uut 
-	(
-	.clk(clk),
-	.reset(rst_n),
-	.uart_rx(ui_in[0]),
-	.aes_enable(ui_in[1]),
-	.uart_tx(uo_out[0]),
-	.frames_received(uo_out[1]),
-	.uart_tx_ready(uo_out[2])
-	);
+  // tt_um_aes_core_uart uut 
+	// (
+	// .clk(clk),
+	// .reset(rst_n),
+	// .uart_rx(ui_in[0]),
+	// .aes_enable(ui_in[1]),
+	// .uart_tx(uo_out[0]),
+	// .frames_received(uo_out[1]),
+	// .uart_tx_ready(uo_out[2])
+	// );
 	
-	
+	sbox uut (.data(uio_in), .dout(uio_out));
   // All output pins must be assigned. If not used, assign to 0.
   assign uio_out = 0;
+  assign uo_out = 0;
   assign uio_oe  = 0;
 
   // List all unused inputs to prevent warnings
